@@ -353,7 +353,7 @@ jQuery(document).ready(function() {
 			var num = 0;
 			var lng = $(".blog-list-masonry .masonry-item").length;
 			if(lng >= 6) {
-				num = lng - 6;
+				num = lng - 6 + i + 1;
 				if (num == 0) {
 					num = 1;
 				}
@@ -373,7 +373,14 @@ jQuery(document).ready(function() {
 		var elems = [];
 		for ( var i = 0; i < 3; i++ ) {
 			var $elem = $('<div class="masonry-item col-xs-12 col-sm-6 col-md-4" />');
-			var num = Math.floor((Math.random() * 6) + 1);
+			var num = 0;
+			var lng = $(".blog-list-masonry .masonry-item").length;
+			if(lng >= 6) {
+				num = lng - 6 + i + 1;
+				if (num == 0) {
+					num = 1;
+				}
+			}
 			$elem.append( '<div class="box"><div class="masonry-list-img"><a href="#"><div class="overlay-hover"><div class="blog-masonry-date"><span>25</span>June<br>2015</div></div><figure class="post-image"><img src="images/upload/blog-list-masonry0' + num + '.jpg" alt="gallery item" /></figure></a></div><div class="masonry-list-detail"><h4>Vestibulum tincidunt</h4><p>Lorem ipsum dolor sit amet consectetur adipiscing elit mauris magna lacinia</p><div class="masonry-meta-category"><span>Category</span><a href="#">Pretium</a></div></div><a href="#"><div class="masonry-link"></div></a></div>' );
 			elems.push( $elem[0] );
 		}
