@@ -350,7 +350,14 @@ jQuery(document).ready(function() {
 		var elems = [];
 		for ( var i = 0; i < 3; i++ ) {
 			var $elem = $('<div class="masonry-item col-xs-12 col-sm-6 col-md-4 cat-one cat-two cat-three cat-four cat-five" />');
-			var num = Math.floor((Math.random() * 9) + 1);
+			var num = 0;
+			var lng = $(".blog-list-masonry .masonry-item").length;
+			if(lng >= 6) {
+				num = lng - 6;
+				if (num == 0) {
+					num = 1;
+				}
+			}
 			$elem.append( '<div class="box"><div class="masonry-list-img"><a href="#"><div class="overlay-hover xcross-hover"><div class="text-hover">See gallery</div></div><figure class="post-image"><img src="images/upload/gallery-list-masonry0' + num + '.jpg" alt="gallery item" /></figure></a></div><div class="masonry-list-detail"><h4>Vestibulum tincidunt</h4><ul class="masonry-list-meta"><li>Category <a href="#">People</a></li><li>Photos <a href="#">15</a></li></ul></div><a href="#"><div class="masonry-link"></div></a></div>' );
 			elems.push( $elem[0] );
 		}
